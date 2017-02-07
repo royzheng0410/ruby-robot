@@ -1,6 +1,6 @@
 class Robot
 	FACING = ['NORTH', 'EAST', 'SOUTH', 'WEST']
-  attr_accessor :position, :direction
+  attr_accessor :position, :direction 
 
   def initialize(attr={})
     @position = attr[:position]

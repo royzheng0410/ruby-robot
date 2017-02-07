@@ -5,7 +5,7 @@ class Robot
   def initialize(attr={})
     @position = attr[:position]
     @direction = attr[:direction]
-  end
+  end 
 
   def execute(commands)	
   	case commands.split(' ').first

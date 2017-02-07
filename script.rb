@@ -1,4 +1,4 @@
-require_relative 'robot'
+require_relative 'lib/robot'
 robot = Robot.new
 puts "Please enter your commands:"
 

@@ -42,7 +42,7 @@ class Robot
   		self.position[0] += perform_move[0]
   		self.position[1] += perform_move[1]
 	  else
-	  	puts 'Invalid move'
+	  	puts 'Cannot move any further from this direction'
 	  end
   end
 

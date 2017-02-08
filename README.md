@@ -11,6 +11,11 @@ cd ruby-robot
 bundle install
 ruby script.rb
 ```
+## Test
+
+```sh
+rspec spec
+```
 
 ## Task
 Create a script that can read in commands of the following form:

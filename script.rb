@@ -4,6 +4,7 @@ puts "Please enter your commands:"
 
 commands = gets
 while commands
-  robot.execute(commands)
+  result = robot.execute(commands)
+  puts result unless result.nil?
   commands = gets 
 end

@@ -14,10 +14,12 @@ ruby script.rb
 
 ## Task
 Create a script that can read in commands of the following form:
-    - PLACE X,Y,F
-    - MOVE
-    - LEFT
-    - RIGHT REPORT
+- PLACE X,Y,F
+- MOVE
+- LEFT
+- RIGHT 
+- REPORT
+
 Please also create tests to ensure your script will run correctly.
 
 ## Commands

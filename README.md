@@ -11,7 +11,7 @@ cd ruby-robot
 bundle install
 ruby script.rb
 ```
-## Test
+## How to run tests
 
 ```sh
 rspec spec

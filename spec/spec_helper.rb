@@ -1,1 +1,2 @@
 require 'robot'
+require 'command'

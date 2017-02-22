@@ -1,27 +1,18 @@
 class Robot
   FACING = ['NORTH', 'EAST', 'SOUTH', 'WEST']
-  attr_accessor :position, :direction 
-
-  def initialize(attr={})
-    @position = attr[:position]
-    @direction = attr[:direction]
-  end 
-
-  def execute(commands)	
-    case commands.split(' ').first
+  attr_accessor :position, :direction
+  
+  def execute(command)	
+    case command.order
     when "PLACE"
-      relocate(commands.split(' ').last.split(","))
+      relocate(command.start_point)
     when "MOVE"
-      return "Please place your robot first" if not_placed?
       move
     when "LEFT"
-      return "Please place your robot first" if not_placed?
       turn('left')
     when "RIGHT"
-      return "Please place your robot first" if not_placed?
       turn('right')
     when "REPORT"
-      return "Please place your robot first" if not_placed?
       report
     when "EXIT"
       exit
@@ -31,9 +22,9 @@ class Robot
   end
 
   def relocate(commands)
-    if check_position(commands[0].to_i, commands[1].to_i) and check_direction(commands[2])
-      self.position = [commands[0].to_i, commands[1].to_i]
-      self.direction = commands[2]
+    if check_position(commands[:x], commands[:y]) and check_direction(commands[:facing])
+      self.position = {x: commands[:x], y: commands[:y]}
+      self.direction = commands[:facing]
       nil
     else
       return "Invalid position"
@@ -41,9 +32,9 @@ class Robot
   end
 
   def move
-    if check_position(self.position[0] + perform_move[0], self.position[1] + perform_move[1])
-      self.position[0] += perform_move[0]
-      self.position[1] += perform_move[1]
+    if check_position(self.position[:x] + perform_move[0], self.position[:y] + perform_move[1])
+      self.position[:x] += perform_move[0]
+      self.position[:y] += perform_move[1]
       nil
     else
       return "Cannot move any further from this direction"
@@ -58,14 +49,14 @@ class Robot
   end
 
   def report
-    return "Output: #{self.position[0]},#{self.position[1]},#{self.direction}"
+    return "Output: #{self.position[:x]},#{self.position[:y]},#{self.direction}"
   end
-
-  private
 
   def not_placed?
     self.position.nil?
   end
+
+  private
 
   def perform_move
     case self.direction
